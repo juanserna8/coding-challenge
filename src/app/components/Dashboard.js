@@ -8,7 +8,9 @@ import { cleanData } from '../services/cleanData'
 
 // Components
 import StatesSamples from './StatesSamples'
-import MostPopularProduct from './mostPopularProduct'
+import MostPopularProduct from './MostPopularProduct'
+import FlavoursBreakdown from './FlavoursBreakdown'
+import SamplesperDay from './SamplesperDay'
 
 export default function Dashboard() {
 
@@ -62,6 +64,8 @@ export default function Dashboard() {
             <div>
                 <StatesSamples data={dataCleaned} />
                 <MostPopularProduct data={dataCleaned} />
+                <FlavoursBreakdown data={dataCleaned} />
+                <SamplesperDay data={dataCleaned} />
             </div>
         )}
                  
