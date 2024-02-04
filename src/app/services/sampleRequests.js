@@ -80,12 +80,12 @@ export async function getAllSampleRequests(){
 
 			// Assumption: When page reaches 8 or multiples of 8, await for 60 seconds to avoid API flooding
 			if (page%8 == 0) {
-				await new Promise((resolve) => setTimeout(resolve, 60000))
+				await new Promise((resolve) => setTimeout(resolve, 90000))
 			}
 		} catch (error) {
 			if(error.message.includes(tooManyRequestsError)) {
 				// Too many requests. Unexpected errors
-				await new Promise((resolve) => setTimeout(resolve, 60000))
+				await new Promise((resolve) => setTimeout(resolve, 90000))
 			} else {
 				// Server Error.
 				throw error

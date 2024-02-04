@@ -24,6 +24,7 @@ export default function Dashboard() {
     // Variables
     const [data, setData] = useState([])
     const [dataCleaned, setDataCleaned] = useState([])
+    const [error, setError] = useState()
 
     // Use effect hooks
     useEffect(() => {
@@ -48,6 +49,7 @@ export default function Dashboard() {
                 }
             } catch (error) {
                 console.error('Error fetching or using data:', error);
+                setError(error)
             }
         }
         fetchData()
@@ -65,32 +67,34 @@ export default function Dashboard() {
     
    
     return (
-    <section className=' md:mx-auto relative'>
-        
-        {/* Hero image */}
-        <div className='absolute w-full -z-10 opacity-80 h-[31.5rem] '>
-            <Image src={Hero} className='w-full h-full object-cover' title='Hero background image' alt='Woman doing weight lifting' />
-            <div className="absolute inset-0 bg-gradient-to-b from-black via-black to-gray-100 opacity-80 " aria-hidden="true"></div>
-        </div>
+    <section className=' '>
 
         {data.length > 0 ? (
-            <div>
+            <div className='md:mx-auto relative'>
+                
+                {/* Hero image */}
+                <div className='absolute w-full -z-10 opacity-80 h-[31.5rem] '>
+                    <Image src={Hero} className='w-full h-full object-cover' title='Hero background image' alt='Woman doing weight lifting' />
+                    <div className="absolute inset-0 bg-gradient-to-b from-black via-black to-gray-100 opacity-80 " aria-hidden="true"></div>
+                </div>
+
                 <Introduction />
                 <MostPopularProduct data={dataCleaned} />
                 <SamplesperDay data={dataCleaned} />
                 <StatesSamples data={dataCleaned} />
                 <FlavoursBreakdown data={dataCleaned} />
                 <DuplicateEntries data={dataCleaned} />
+
             </div>
         ) : 
-            <div className='page h-screen flex flex-col gap-[2rem] items-center justify-center '>
+            <div className=' page w-full sm:mx-auto h-screen py-[4rem] flex flex-col sm:justify-start gap-[3rem] items-center '>
                 <h2 className=' text-brandYellow font-bold text-[1.5rem]'>Loading...</h2> 
                 <p className='px-2 md:text-center'>If you are visiting this website for first time, please wait for 1 minute while the data is being processed</p>
                 <div
                     className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
                     role="status"
                 />
-                <div className='flex flex-col gap-[1rem]'>
+                <div className='flex flex-col gap-[3rem]'>
                     <p>Meanwhile, we invite you to check our latest articles</p>
                     <Link href='https://www.bulknutrients.com.au/blog' target='_blank'>
                         <button className='bg-brandYellow py-2 w-full'>Go to blog</button>
@@ -98,6 +102,10 @@ export default function Dashboard() {
                 </div> 
             </div>
         }
+
+        {error && (
+            {error}
+        )}
                  
     </section>
   )
