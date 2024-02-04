@@ -67,7 +67,7 @@ export default function Dashboard() {
     
    
     return (
-    <section className=' '>
+    <section className='w-full mx-auto '>
 
         {data.length > 0 ? (
             <div className='md:mx-auto relative'>
