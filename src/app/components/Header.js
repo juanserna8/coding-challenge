@@ -1,7 +1,7 @@
 import React from 'react'
 
 // Assets
-import Logo from '../assets/Logo.png'
+import Logo from '../assets/logo.png'
 import Image from 'next/image'
 
 export default function Header() {

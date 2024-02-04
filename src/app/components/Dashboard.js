@@ -9,7 +9,7 @@ import { cleanData } from '../services/cleanData'
 
 // Components
 import StatesSamples from './StatesSamples'
-import MostPopularProduct from './MostPopularProduct'
+import MostPopularProduct from './mostPopularProduct'
 import FlavoursBreakdown from './FlavoursBreakdown'
 import SamplesperDay from './SamplesperDay'
 import DuplicateEntries from './DuplicateEntries'
