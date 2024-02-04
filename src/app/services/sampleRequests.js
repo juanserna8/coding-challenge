@@ -78,8 +78,8 @@ export async function getAllSampleRequests(){
 			samples.push(...nextBatch)
 			page++
 
-			// Assumption: When page reaches 10, await 60 seconds
-			if (page%10 == 0) {
+			// Assumption: When page reaches 8 or multiples of 8, await for 60 seconds to avoid API flooding
+			if (page%8 == 0) {
 				await new Promise((resolve) => setTimeout(resolve, 60000))
 			}
 		} catch (error) {

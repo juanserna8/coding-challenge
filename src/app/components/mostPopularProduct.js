@@ -29,9 +29,12 @@ export default function MostPopularProduct({data}) {
     }, [commonProducts])
   
     return (
-    <div>
-      <h2>Most popular product:</h2>
-      <p>{bestSeller?.mostPopularProduct} with {bestSeller?.itemsSold} units sold</p>
+    <div className='relative bg-brandGray mx-auto text-center py-[4rem]'>
+      <h2 className='text-[2rem] font-bold text-brandYellow leading-[1.9rem] '>The Most Popular Product</h2>
+      <p className='mt-[2rem] text-[1.2rem]'><strong>{bestSeller?.mostPopularProduct}</strong> with {bestSeller?.itemsSold} units sold</p>
+      
+      {/* Component divider */}
+      <div className='absolute bottom-0 bg-gradient-to-l from-transparent via-gray-400 to-transparent p-[0.05rem] w-full '></div>
     </div>
   )
 }

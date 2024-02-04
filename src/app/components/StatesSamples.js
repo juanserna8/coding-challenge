@@ -1,5 +1,6 @@
 'use client'
 import React, { useEffect, useState } from 'react'
+import Image from 'next/image'
 
 // Services
 import { countStatesPersample } from '../services/countStatesPerSample'
@@ -42,15 +43,23 @@ export default function StatesSamples({data}) {
     }, [data])
 
     return (
-    <div>
-        <p>VIC: {vic}</p>
-        <p>NSW: {nsw}</p>
-        <p>TAS: {tas}</p>
-        <p>SA: {sa}</p>
-        <p>QLD: {qld}</p>
-        <p>WA: {wa}</p>
-        <p>ACT: {act}</p>
-        <h2>Total: {vic+nsw+tas+sa+qld+wa+act}</h2>
+    <div className='relative bg-brandGray mx-auto text-center py-[4rem]'>
+
+            <h2 className='text-[2rem] font-bold text-brandYellow leading-[1.9rem]'>Samples Per State</h2>
+            <ul className='mt-[2rem] grid grid-cols-3 text-[1.2rem] gap-[0.5rem]'>
+                <li>VIC: {vic}</li>
+                <li>NSW: {nsw}</li>
+                <li>TAS: {tas}</li>
+                <li>SA: {sa}</li>
+                <li>QLD: {qld}</li>
+                <li>WA: {wa}</li>
+                <li className='col-span-3 mx-auto'>ACT: {act}</li>
+
+            </ul>
+            <h3 className='mt-[2rem] text-[1.2rem] font-bold' >Total samples sent: {vic+nsw+tas+sa+qld+wa+act}</h3>
+
+        {/* Component divider */}
+        <div className='absolute bottom-0 bg-gradient-to-l from-transparent via-gray-400 to-transparent p-[0.05rem] w-full '></div>
     </div>
   )
 }
