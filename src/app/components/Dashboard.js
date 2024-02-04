@@ -77,9 +77,9 @@ export default function Dashboard() {
             <div>
                 <Introduction />
                 <MostPopularProduct data={dataCleaned} />
+                <SamplesperDay data={dataCleaned} />
                 <StatesSamples data={dataCleaned} />
                 <FlavoursBreakdown data={dataCleaned} />
-                <SamplesperDay data={dataCleaned} />
                 <DuplicateEntries data={dataCleaned} />
             </div>
         ) : 
